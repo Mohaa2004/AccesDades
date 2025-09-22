@@ -22,8 +22,7 @@ public class exercici3 {
                     secret.append(word);
                 }
 
-                System.out.println(numRandom + ":" + secret);
-
+                System.out.println(numRandom + ":" + secret);   
                 numRandom += random.nextInt(3) + 1;
             }
 
