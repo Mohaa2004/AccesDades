@@ -21,7 +21,7 @@ public class gestioUsuari {
                     System.out.println("Accés no concedit: La contrasenya no és correcta");
                 }
             } catch (Exception e) {
-                System.out.println("Error llegint l'usuari.");
+                System.out.println("Error llegint l'usuari");
             }
         } else {
             System.out.println("No s'ha trobat l'usuari, vols registrar-te? (si/no)");
@@ -30,12 +30,12 @@ public class gestioUsuari {
                 User nouUsuari = new User(nom, pass);
                 try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(arxiu))) {
                     oos.writeObject(nouUsuari);
-                    System.out.println("Usuari registrat correctament.");
+                    System.out.println("Usuari registrat correctament");
                 } catch (Exception e) {
-                    System.out.println("Error al registrar l'usuari.");
+                    System.out.println("Error al registrar l'usuari");
                 }
             } else {
-                System.out.println("Registre cancel·lat.");
+                System.out.println("Registre cancel·lat");
             }
         }
     }
