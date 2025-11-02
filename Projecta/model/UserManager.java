@@ -1,10 +1,10 @@
 package model;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserManager {
     // Lista de usuarios
@@ -44,7 +44,19 @@ public class UserManager {
     public void registrarUsuario(User nuevoUsuario){
         // Creamos la lista para guardar los usuarios
         List<User> users = leerUsuarios();
-        users.add(nuevoUsuario);
+        boolean encontrado = false;
+        // Si el usuario ya existe (mismo user), lo actualizamos
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getUser().equals(nuevoUsuario.getUser())) {
+                users.set(i, nuevoUsuario);
+                encontrado = true;
+                break;
+            }
+        }
+        // Si no existe, lo añadimos
+        if (!encontrado) {
+            users.add(nuevoUsuario);
+        }
         guardarUsuarios(users);
     }
 
